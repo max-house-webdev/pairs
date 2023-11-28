@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*::selection {
+  color: $color-select;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  background-color: $color-light-purple;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+
+  @include mq('tablet') {
+    font-size: 16px;
+  }
+
+  // @include mq('desktop') {
+  //   font-size: 18px;
+  // }
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+// clears input button text field
+input::-ms-clear {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+button {
+  cursor: pointer;
+}
+
+// lists
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

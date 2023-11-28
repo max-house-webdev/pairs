@@ -1,0 +1,25 @@
+# node_modules directory
+node_modules/
+**/node_modules
+
+# Ignore Logs
+logs
+*.log
+
+# the build directory
+dist/
+**/dist
+build
+**/build
+
+# the file containing environment variables
+.env
+
+# IDE specific files
+.idea/
+.vscode/
+**/.vscode
+*.sw*
+
+.prettierrc
+**/.prettierrc

@@ -1,0 +1,15 @@
+// global varibles
+$breakpoints: (
+  // phone
+  "mobile-S": 320px,
+  "mobile-M": 375px,
+  "mobile-L": 425px,
+  // tablet
+  "tablet": 768px,
+  // laptop
+  "laptop": 1024px,
+  // desktop
+  "desktop": 1440px,
+  // large screen
+  "large-screen": 1920px
+);

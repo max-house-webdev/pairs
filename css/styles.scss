@@ -1,0 +1,213 @@
+@import 'scss/fonts';
+@import 'scss/var';
+@import 'scss/colors';
+@import 'scss/mixin';
+@import 'scss/normalize';
+@import 'scss/null';
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 2.5em 36em auto;
+  max-width: 1240px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @include mq('desktop') {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.title {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  margin: 0;
+  color: $color-accent-yellow;
+  background-color: $color-purple;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.btn {
+  color: $color-font;
+  border-color: $color-purple;
+  background-color: $color-accent-yellow;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &:focus-visible {
+    outline-offset: 2px;
+    outline-color: $color-purple;
+  }
+}
+
+.form {
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+  align-self: start;
+  display: grid;
+  grid-template-columns: auto 4em;
+  grid-template-rows: repeat(3, 3em);
+  grid-gap: 0.5em;
+  padding: 1em;
+  border: 2px solid $color-purple;
+  background-color: $color-bg;
+
+  @include mq('tablet') {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    align-self: start;
+    margin: 1em 0 0 0;
+    grid-gap: 1em;
+  }
+
+  &__label {
+    grid-column: 1 / 2;
+    padding: 0.5em 0;
+    line-height: 1;
+    color: $color-font;
+
+    &:first-of-type {
+      grid-row: 1 / 2;
+    }
+
+    &:last-of-type {
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__input {
+    grid-column: 2 / 3;
+    padding: 0.5em 1em;
+    color: $color-font;
+    text-align: right;
+    background-color: $color-light-purple;
+    border-color: $color-purple;
+
+    &:first-of-type {
+      grid-row: 1 / 2;
+    }
+
+    &:last-of-type {
+      grid-row: 2 / 3;
+    }
+
+    &.time-is-runningout {
+      color: $color-accent-yellow;
+    }
+
+    &:focus-visible {
+      outline-color: $color-focus;
+    }
+  }
+
+  &__btn-submit {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+  }
+}
+
+.label-for-checkbox {
+  position: relative;
+  margin-left: 1.5em;
+  color: $color-purple;
+  cursor: pointer;
+
+  &::after {
+    @include pseudo;
+    left: -1.5em;
+    top: 0.5em;
+    width: 1em;
+    height: 1em;
+
+    background-color: $color-light-purple;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+.form__checkbox:checked + .label-for-checkbox::after {
+  background-image: url('../svg/check.svg');
+}
+
+.form__checkbox:checked + .label-for-checkbox {
+  color: $color-font;
+}
+
+.cardList {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  justify-content: center;
+  display: grid;
+  grid-gap: 0.25em;
+  padding: 1em 0;
+
+  @include mq('tablet') {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    grid-gap: 0.5em;
+  }
+}
+
+.card {
+  padding: 0.175em 0;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: $color-purple;
+  background-color: $color-purple;
+  border: 1px solid $color-accent-green;
+  cursor: pointer;
+
+  &.is-opened {
+    color: $color-accent-yellow;
+  }
+
+  &.stay-opened {
+    color: $color-accent-yellow;
+  }
+}
+
+.popup {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 8em;
+  width: 70%;
+  max-width: 800px;
+  padding: 1em;
+  background-color: $color-purple;
+  border: 2px solid $color-accent-green;
+  z-index: 3;
+
+  &__message {
+    text-align: center;
+    color: $color-accent-yellow;
+  }
+
+  &__btn-close {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1em;
+    margin: 0.5em 0 0 0;
+    padding: 0.5em 1em;
+  }
+}
